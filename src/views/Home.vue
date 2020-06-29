@@ -1,20 +1,25 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+      <van-swipe-item>1</van-swipe-item>
+      <van-swipe-item>2</van-swipe-item>
+      <van-swipe-item>3</van-swipe-item>
+      <van-swipe-item>4</van-swipe-item>
+    </van-swipe>
+    <van-grid :column-num="3">
+      <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+    </van-grid>
     <Loading :show="showLoading" text="请稍后" />
-    <button @click="showLoad">按钮</button>
+    <van-button size="large" type="primary" @click="showLoad" ref="btn">主要按钮</van-button>
   </div>
 </template>
-
 <script lang="ts">
 // @ is an alias to /src
-import { Component, Vue } from 'vue-property-decorator'
-import HelloWorld from '@/components/HelloWorld.vue'
+import { Component, Vue, Ref } from 'vue-property-decorator'
 import Loading from '@/components/Loading/loading.vue'
 @Component({
   name: 'Home',
   components: {
-    HelloWorld,
     Loading
   }
 })
@@ -23,5 +28,19 @@ export default class Home extends Vue {
   private showLoad() {
     this.showLoading = true
   }
+  @Ref('btn')
+  readonly btn!: HTMLElement
+  private mounted() {
+    console.log(this.btn.clientWidth)
+  }
 }
 </script>
+<style>
+.my-swipe .van-swipe-item {
+  color: #fff;
+  font-size: 20px;
+  line-height: 150px;
+  text-align: center;
+  background-color: #39a9ed;
+}
+</style>

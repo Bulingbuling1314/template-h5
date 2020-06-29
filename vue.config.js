@@ -1,4 +1,6 @@
 'use strict'
+const merge = require("webpack-merge");
+const tsImportPluginFactory = require("ts-import-plugin");
 const path = require('path');
 const resolve = dir => path.join(__dirname, dir);
 module.exports = {
@@ -15,6 +17,27 @@ module.exports = {
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src')) // key,value自行定义，比如.set('@@', resolve('src/components'))
+    config.module // 配置vant按需引入
+      .rule("ts")
+      .use("ts-loader")
+      .tap(options => {
+        options = merge(options, {
+          transpileOnly: true,
+          getCustomTransformers: () => ({
+            before: [
+              tsImportPluginFactory({
+                libraryName: "vant",
+                libraryDirectory: "es",
+                style: true
+              })
+            ]
+          }),
+          compilerOptions: {
+            module: "es2015"
+          }
+        });
+        return options;
+      });
   },
   css: {
     loaderOptions: {
@@ -29,11 +52,11 @@ module.exports = {
     }
   },
   pluginOptions: {
-      'style-resources-loader': {
-        preProcessor: 'less',
-        patterns: [
-          resolve('src/assets/style/color.less')
-        ]
-      }
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [
+        resolve('src/assets/style/color.less')
+      ]
+    }
   }
 }

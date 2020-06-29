@@ -30,6 +30,7 @@ export default class Loading extends Vue {
   display: flex;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
   .loading{
     width: 80px;
     height: 40px;
@@ -56,7 +57,6 @@ export default class Loading extends Vue {
     }
     p {
       color: #fff;
-      font-size: 14px;
       text-align: center;
       margin-top: 10px;
     }
