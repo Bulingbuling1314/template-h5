@@ -11,6 +11,8 @@
     </van-grid>
     <Loading :show="showLoading" text="请稍后" />
     <van-button size="large" type="primary" @click="showLoad" ref="btn">主要按钮</van-button>
+
+    <Tabbar></Tabbar>
   </div>
 </template>
 
@@ -18,10 +20,12 @@
 // @ is an alias to /src
 import { Component, Vue, Ref } from 'vue-property-decorator'
 import Loading from '@/components/Loading/loading.vue'
+import Tabbar from '@/components/Tabbar/tabbar.vue'
 @Component({
   name: 'Home',
   components: {
-    Loading
+    Loading,
+    Tabbar
   }
 })
 export default class Home extends Vue {
