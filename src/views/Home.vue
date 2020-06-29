@@ -13,6 +13,7 @@
     <van-button size="large" type="primary" @click="showLoad" ref="btn">主要按钮</van-button>
   </div>
 </template>
+
 <script lang="ts">
 // @ is an alias to /src
 import { Component, Vue, Ref } from 'vue-property-decorator'
@@ -24,17 +25,21 @@ import Loading from '@/components/Loading/loading.vue'
   }
 })
 export default class Home extends Vue {
+  @Ref('btn')
+  private btn!: HTMLElement
   private showLoading = false
   private showLoad() {
     this.showLoading = true
+    setTimeout(() => {
+      this.showLoading = false
+    }, 2000)
   }
-  @Ref('btn')
-  public btn!: HTMLElement
   private mounted() {
     console.log(this.btn.clientWidth)
   }
 }
 </script>
+
 <style>
 .my-swipe .van-swipe-item {
   color: #fff;

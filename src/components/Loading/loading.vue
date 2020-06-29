@@ -16,8 +16,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
   name: 'Loading'
 })
 export default class Loading extends Vue {
-  @Prop({ default: false }) private show!: boolean
-  @Prop({ default: '加载中...' }) private text!: string
+  @Prop({ default: false })
+  private show!: boolean
+  @Prop({ default: '加载中...' })
+  private text!: string
 }
 </script>
 <style lang="less" scoped>
@@ -31,28 +33,29 @@ export default class Loading extends Vue {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
   font-size: 14px;
-  .loading{
+  z-index: 2020;
+  .loading {
     width: 80px;
     height: 40px;
     margin: 0 auto;
     text-align: center;
-    span{
+    span {
       display: inline-block;
-      width: 10px;
+      width: 8px;
       border-radius: 4px;
       background: lightgreen;
       animation: load 1s ease infinite;
-      &:nth-child(2){
-        animation-delay:0.2s;
+      &:nth-child(2) {
+        animation-delay: 0.2s;
       }
-      &:nth-child(3){
-        animation-delay:0.4s;
+      &:nth-child(3) {
+        animation-delay: 0.4s;
       }
-      &:nth-child(4){
-        animation-delay:0.6s;
+      &:nth-child(4) {
+        animation-delay: 0.6s;
       }
-      &:nth-child(5){
-        animation-delay:0.8s;
+      &:nth-child(5) {
+        animation-delay: 0.8s;
       }
     }
     p {
