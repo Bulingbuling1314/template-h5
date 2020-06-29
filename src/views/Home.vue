@@ -29,7 +29,7 @@ export default class Home extends Vue {
     this.showLoading = true
   }
   @Ref('btn')
-  readonly btn!: HTMLElement
+  public btn!: HTMLElement
   private mounted() {
     console.log(this.btn.clientWidth)
   }
