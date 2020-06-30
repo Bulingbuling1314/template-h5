@@ -18,7 +18,7 @@ import Tabbar from '@/components/Tabbar/tabbar.vue'
 export default class Home extends Vue {
   private animationName!: string
   @Watch('$route')
-  routeChange(newRoute: any, oldRoute: any) {
+  private routeChange(newRoute: any, oldRoute: any) {
     if (newRoute.meta.index > oldRoute.meta.index) {
       this.animationName = 'slide-left'
     } else {
