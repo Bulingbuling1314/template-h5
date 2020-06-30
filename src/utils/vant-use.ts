@@ -6,7 +6,8 @@ import {
   Grid,
   GridItem,
   Tabbar,
-  TabbarItem
+  TabbarItem,
+  NavBar
 } from 'vant';
 Vue.use(Grid)
   .use(GridItem)
@@ -15,3 +16,4 @@ Vue.use(Grid)
   .use(Button)
   .use(Tabbar)
   .use(TabbarItem)
+  .use(NavBar);
