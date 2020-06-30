@@ -2,25 +2,30 @@
   <div class="home">
     <div class="head">
       <div class="head_bar">
-        <div class="head_bar_search"><input type="text" placeholder="搜索关键词"></div>
+        <div class="head_bar_search">
+          <input type="text" placeholder="搜索关键词" />
+        </div>
         <div class="head_bar_icon">
-          <img src="../../assets/images/scan.png" alt="">
-          <img src="../../assets/images/notice.png" alt="">
+          <img src="../../assets/images/scan.png" alt />
+          <img src="../../assets/images/notice.png" alt />
         </div>
       </div>
     </div>
     <div class="nav">
       <ul>
-        <li v-for="item in navList" :key="item.id"><img :src="item.icon" alt=""><span>{{ item.name }}</span></li>
+        <li v-for="item in navList" :key="item.id">
+          <img :src="item.icon" alt />
+          <span>{{ item.name }}</span>
+        </li>
       </ul>
     </div>
     <div class="s_banner">
-      <img src="../../assets/images/s_banner.png" alt="">
+      <img src="../../assets/images/s_banner.png" alt />
     </div>
     <div class="list">
       <h5>载体推荐</h5>
       <div class="item" v-for="item in comList" :key="item.id">
-        <img :src="item.image" alt="">
+        <img :src="item.image" alt />
         <div class="item_text">
           <p>{{ item.name }}</p>
           <span>{{ item.info }}</span>
@@ -135,7 +140,6 @@ export default class Home extends Vue {
 
 <style lang="less" scoped>
 .home {
-  height: calc(100% - 50px);
   overflow-y: scroll;
   background-color: #fff;
   .head {
